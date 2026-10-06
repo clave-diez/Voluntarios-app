@@ -360,7 +360,6 @@ button {
     padding: 16px 16px calc(var(--safe-bottom) + 100px);
     display: flex;
     flex-direction: column;
-    gap: 12px;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -391,6 +390,13 @@ button {
     box-shadow: var(--shadow-card);
     border-left: 4px solid var(--code-color, var(--hairline));
     transition: transform 0.15s var(--ease), background-color 0.15s;
+    /* margin, no gap del padre: el gap de flexbox se ignora en algunos WebView
+       de Android viejos y las tarjetas quedaban pegadas. Margin siempre funciona. */
+    margin-bottom: 14px;
+}
+
+.ticket:last-child {
+    margin-bottom: 0;
 }
 
 .ticket:active {
